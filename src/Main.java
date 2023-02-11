@@ -27,7 +27,7 @@ class Main {
     }
 
     public static void maximumWage(Employee[] employees) {
-        double max = 0;
+        int max = 0;
         for (int i = 0; i < employees.length; i++) {
 
             if (employees[i].getSalary() > max) {
@@ -38,7 +38,7 @@ class Main {
     }
 
     public static void minimumWage(Employee[] employees) {
-        double min = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         for (int i = 0; i < employees.length; i++) {
 
             if (employees[i].getSalary() < min) {
@@ -49,7 +49,7 @@ class Main {
     }
 
     public static void totalAmount(Employee[] employees) {
-        double sum = 0;
+        int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum = sum + employees[i].getSalary();
         }
@@ -59,14 +59,13 @@ class Main {
 
         for (int i = 0; i < employees.length; i++) {
             double general = employees[i].getSalary() + employees[i].getSalary() * percent * 0.01 ;
-            employees[i].setSalary(general);//изменил значение через сеттер
             System.out.println(general + " проиндексирована зароботная плата " + employees[i].getFullName());
 
         }
 
     }
     public static void conclusionDepartmentMinimumWage(int dep,Employee[] employees) {
-        double min = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
 
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == dep)
@@ -76,7 +75,7 @@ class Main {
             System.out.println("минимальная зарплата отела " + dep + " -" + min);
         }
     public static void conclusionDepartmentMaximumWage(int dep,Employee[] employees) {
-        double max = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
 
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == dep)
@@ -86,7 +85,7 @@ class Main {
         System.out.println("максимальная зарплата отела " + dep + " -" + max);
     }
     public static void calculateDepartmentExpenses(int dep,Employee[] employees){
-        double sum = 0;
+        int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == dep)
             sum = sum + employees[i].getSalary();
@@ -101,8 +100,8 @@ class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == dep) {
                 sum = sum + employees[i].getSalary();
-                int totalDeportations = employees[i].getDepartment() + 1; //сумма депортаментов
-                average = sum / totalDeportations;
+                int w = employees[i].getDepartment() + 1;
+                average = sum / w;
 
 
             }
@@ -113,7 +112,6 @@ class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == dep) {
                 double general = employees[i].getSalary() + employees[i].getSalary() * percent * 0.01;
-                employees[i].setSalary(general); //изменил значение через сеттер
                 System.out.println(general + " проиндексирована зароботная плата " + employees[i].getFullName() + " " + dep + " отдел");
 
             }
@@ -175,7 +173,7 @@ class Main {
         averageSalary(employees);
         printFullName(employees);
 
-        double percent = 50; //здесь ввод процентов индексации зп
+        double percent = 0; //здесь ввод процентов индексации зп
         salaryConverter(percent,employees);
 
         int dep = 1;      //здесь ввод депортамента в котором необходимо узнать минимальную зп
@@ -202,8 +200,6 @@ class Main {
         System.out.println();
         int number2 = 9;
         moreValue(number2,employees); //Все сотрудники с зарплатой больше или равно числа
-
-        System.out.println(employees[0]);
 
 
 
